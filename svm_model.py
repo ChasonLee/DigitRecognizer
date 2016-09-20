@@ -100,20 +100,18 @@ def output_test(test_y):
             submitwriter.writerow([image_id, t])
             image_id += 1
         print "submission saved."
-
-def main_train_model():
+		
+def main_train_model(model_filename):
 	train_x, train_y, test_x = load_dataset("train.csv", "test.csv")
-	svm_model = svm_train(train_x, train_y, "svm.model")
+	svm_model = svm_train(train_x, train_y, model_filename)
+	calc_train_performance(svm_model, train_x, train_y)
+	test_y = get_test_prediction(svm_model, test_x)
+	output_test(test_y)
+	
+def main_load_model(model_filename):
+	train_x, train_y, test_x = load_dataset("train.csv", "test.csv")
+	svm_model = load_model(model_filename)
 	calc_train_performance(svm_model, train_x, train_y)
 	test_y = get_test_prediction(svm_model, test_x)
 	output_test(test_y)
 
-def main_load_model():
-	train_x, train_y, test_x = load_dataset("train.csv", "test.csv")
-	svm_model = load_model("svm.model")
-	calc_train_performance(svm_model, train_x, train_y)
-	test_y = get_test_prediction(svm_model, test_x)
-	output_test(test_y)
-
-# main_train_model()
-main_load_model()
