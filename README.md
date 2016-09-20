@@ -6,8 +6,10 @@ from kaggle competitions(using scikit-learn svm model)
 - This program used the initial svm parameters and got 0.936 performance on the test set.
 
 # Requirement
+- To avoid MemoryError, please note that python x64 is required.
 - Scikit-learn is required. See http://scikit-learn.org/stable/install.html
 
 # Usage
 - Download the datasets first.("train.csv" and "test.csv")
-- Then run ```python svm_model.py```
+- If you wanna train your own model, then run ```python train_svm_model.py [your model filename]```. The default filename is "svm.model"
+- If you wanna load a trained model, then run ```python load_svm_model.py [your model filename]```. The default filename is "svm.model"
