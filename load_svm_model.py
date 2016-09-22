@@ -12,5 +12,3 @@ if __name__ == '__main__':
 		main_load_model(sys.argv[1])
 	else:
 		print "Usage: python load_svm_model [your model filename(default:'svm.model')]"
-		
-
