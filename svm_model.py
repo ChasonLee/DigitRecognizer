@@ -151,9 +151,9 @@ def get_cross_validation(train_x, train_y):
     print len(train_x), len(train_y), len(cv_x), len(cv_y)
     return cv_x, cv_y
 	
-def main_train_model(model_filename):
+def main_train_model(model_filename, C = None, gamma = None):
     train_x, train_y, test_x = load_dataset("train.csv", "test.csv")
-    svm_model = svm_train(train_x, train_y, model_filename)
+    svm_model = svm_train(train_x, train_y, model_filename, C, gamma)
     calc_train_performance(svm_model, train_x, train_y)
     test_y = get_test_prediction(svm_model, test_x)
     output_test(test_y)
@@ -182,6 +182,7 @@ def main_search_best_param(model_filename):
             cPickle.dump(svm_model, f, -1)
             f.close()
             print "Best param for now! Model saved."
+            cv_perf = best_cv_perf
 
 def test():
     train_x, train_y, test_x = load_dataset("train.csv", "test.csv")
