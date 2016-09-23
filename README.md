@@ -3,8 +3,8 @@ from kaggle competitions(using scikit-learn svm model)
 
 # Description
 - The datasets are from https://www.kaggle.com/c/digit-recognizer/data
-- This program used the initial svm parameters and got 0.936 performance on the test set, which is bad... 
-- Next, I will find better parameters to improve the performance.
+- This program used the initial svm parameters and got 0.936 accuracy on the test set, which is bad... 
+- When I set ```C=1000.0, gamma='auto'```, I got 0.96986 accuracy.
 
 # Requirement
 - To avoid MemoryError, please note that python x64 is required.
